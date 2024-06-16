@@ -1,4 +1,5 @@
 {
   # Import all your configuration modules here
-  imports = [ ];
+  imports =
+    [ ./completion ./core ./format ./lsp ./telescope ./treesitter ./utils ];
 }
