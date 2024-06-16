@@ -1,2 +1,1 @@
-# neovim-flake
-
+# Neovim-flake
