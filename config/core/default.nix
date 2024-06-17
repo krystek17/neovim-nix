@@ -12,17 +12,12 @@
     loaded_ruby_provider = 0; # Ruby
   };
 
-  # extraConfigLua = builtins.readFile ./main.lua;
+  extraConfigLua = builtins.readFile ./main.lua;
   extraPackages = with pkgs; [ ansible-lint gcc xclip ];
 
   extraPlugins = with pkgs.vimPlugins; [
-    alpha-nvim
     ansible-vim
     friendly-snippets
-    git-conflict-nvim
-    harpoon2
-    nginx-vim
-    telescope-ui-select-nvim
     vim-just
 
     # Required by terramate

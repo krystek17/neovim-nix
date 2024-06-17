@@ -2,7 +2,6 @@
   plugins = {
     cmp = {
       enable = true;
-      # snippet.expand = "luasnip";
       settings = {
         snippet.expand =
           "function(args) require('luasnip').lsp_expand(args.body) end";

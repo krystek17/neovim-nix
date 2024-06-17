@@ -4,7 +4,7 @@
       enable = true;
       servers = {
         ansiblels.enable = true;
-        bashls.enable = true;
+        #bashls.enable = true;
         gopls.enable = true;
         jsonls.enable = true;
         lua-ls.enable = true;
