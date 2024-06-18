@@ -1,10 +1,17 @@
-{ lib, helpers, ... }: {
+{ lib, helpers, ... }:
+
+{
   globals.mapleader = " ";
   keymaps = let
     normal = lib.mapAttrsToList (key: action: {
       mode = "n";
       inherit action key;
     }) {
+      # Dismiss all notifications
+      "<C-n>" = ''
+        <cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>
+      '';
+
       # Neogit
       "<leader>g" = "<cmd>Neogit<CR>";
 
@@ -36,7 +43,7 @@
 
       # Telescope
       "<leader>b" = "<cmd>Telescope buffers<CR>";
-      "<leader>d" = "<cmd>Telescope find_files hidden=true<CR>";
+      "<leader>s" = "<cmd>Telescope find_files hidden=true<CR>";
       "<leader>f" = "<cmd>Telescope live_grep<CR>";
       "<leader>r" = "<cmd>Telescope registers<CR>";
       "<C-p>" = "<cmd>Telescope oldfiles<CR>";

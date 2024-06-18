@@ -1,22 +1,39 @@
 {
   opts = {
+    # Line numbers
+    number = true;
+    relativenumber = true;
+
+    # System clipboard support
     clipboard = "unnamedplus";
-    cursorline = true;
+
+    # Set tabs to 2 spaces
+    tabstop = 2;
     expandtab = true;
+
+    # Indentation
+    shiftwidth = 2;
+    smartindent = true;
+    preserveindent = true;
+
+    # Search
     hlsearch = false;
     ignorecase = true;
     incsearch = true;
-    mouse = "a";
-    number = true;
-    preserveindent = true;
-    relativenumber = true;
-    scrolloff = 9;
-    shiftwidth = 2;
     smartcase = true;
-    smartindent = true;
+
+    # Enable mouse mode
+    mouse = "a";
+
+    # Enable cursor line + keep 0 lines above cursor
+    cursorline = true;
+    scrolloff = 9;
+
+    # Remove swapfile & enable undofile
     swapfile = false;
-    tabstop = 2;
     undofile = true;
+
+    # Increase mvim speed
     updatetime = 100;
   };
 }

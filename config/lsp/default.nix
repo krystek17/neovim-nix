@@ -18,7 +18,12 @@
       };
 
       keymaps = {
-        diagnostic = { "<A-d>" = "open_float"; };
+        diagnostic = {
+          "<A-d>" = {
+            action = "open_float";
+            desc = "Show diagnostics";
+          };
+        };
 
         lspBuf = {
           K = "hover";
