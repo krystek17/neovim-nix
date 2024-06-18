@@ -10,7 +10,6 @@
         lua-ls.enable = true;
         marksman.enable = true;
         nil-ls.enable = true;
-        nixd.enable = true;
         pyright.enable = true;
         tailwindcss.enable = true;
         terraformls.enable = true;
