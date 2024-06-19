@@ -9,7 +9,14 @@
         jsonls.enable = true;
         lua-ls.enable = true;
         marksman.enable = true;
-        nil-ls.enable = true;
+
+        nixd = {
+          enable = true;
+          settings.diagnostic = {
+            suppress = [ "sema-escaping-with" "var-bind-to-this" ];
+          };
+        };
+
         pyright.enable = true;
         tailwindcss.enable = true;
         terraformls.enable = true;
