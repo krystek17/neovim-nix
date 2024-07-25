@@ -3,10 +3,13 @@
 
   viAlias = true;
   vimAlias = true;
+
   colorschemes.tokyonight = {
     enable = true;
     settings.style = "night";
   };
+
+  diagnostics = { virtual_lines = { only_current_line = true; }; };
 
   globals = {
     loaded_ruby_provider = 0; # Ruby

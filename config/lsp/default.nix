@@ -55,10 +55,8 @@
         };
       };
     };
-    lsp-lines = {
-      enable = true;
-      currentLine = true;
-    };
+
+    lsp-lines.enable = true;
 
     luasnip = {
       enable = true;

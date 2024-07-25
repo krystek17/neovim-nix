@@ -2,7 +2,6 @@
   plugins = {
     treesitter = {
       enable = true;
-      indent = true;
       nixvimInjections = true;
       nixGrammars = true;
 
@@ -36,6 +35,8 @@
         yaml
         yuck
       ];
+
+      settings.indent.enable = true;
     };
   };
 }
