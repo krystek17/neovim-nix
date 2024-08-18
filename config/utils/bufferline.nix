@@ -2,8 +2,10 @@
   plugins = {
     bufferline = {
       enable = true;
-      diagnostics = "nvim_lsp";
-      separatorStyle = "slant";
+      settings.options = {
+        diagnostics = "nvim_lsp";
+        separator_style = "slant";
+      };
     };
   };
 }
