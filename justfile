@@ -8,3 +8,6 @@ update:
 
 check:
     nix flake check --show-trace
+
+run:
+    nix run
