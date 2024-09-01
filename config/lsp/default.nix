@@ -20,7 +20,12 @@
 
         pyright.enable = true;
         tailwindcss.enable = true;
-        terraformls.enable = true;
+
+        terraformls = {
+          enable = true;
+          filetypes = [ "terraform" "terraform-vars" "tf.tmgen" ]; # FIXME:
+        };
+
         tsserver.enable = true;
         yamlls.enable = true;
       };

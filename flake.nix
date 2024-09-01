@@ -9,9 +9,15 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vim-terramate = {
+      url = "github:terramate-io/vim-terramate";
+      flake = false;
+    };
+
   };
 
-  outputs = { nixvim, flake-parts, ... }@inputs:
+  outputs = { nixpkgs, nixvim, flake-parts, vim-terramate, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
@@ -27,15 +33,29 @@
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in {
-          checks = {
-            # Run `nix flake check .` to verify that your config is not broken
-            default =
-              nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
+          _module.args.pkgs = import nixpkgs {
+            inherit system;
+            overlays = [
+              (final: prev: {
+                vimPlugins = prev.vimPlugins // {
+                  vim-terramate = prev.vimUtils.buildVimPlugin {
+                    name = "vim-terramate";
+                    src = inputs.vim-terramate;
+                  };
+                };
+              })
+            ];
           };
 
           packages = {
             # Lets you run `nix run .` to start nixvim
             default = nvim;
+          };
+
+          checks = {
+            # Run `nix flake check .` to verify that your config is not broken
+            default =
+              nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
           };
         };
     };
