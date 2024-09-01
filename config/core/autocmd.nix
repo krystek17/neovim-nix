@@ -19,6 +19,14 @@
       pattern = [ "markdown" ];
       command = "setlocal spell spelllang=en_gb,fr";
     }
+
+    {
+      event = [ "BufEnter" "BufNewFile" ];
+      desc = "Set tmgen file as terraform file";
+      pattern = [ "*.tf.tmgen" "*.tf" ];
+      command = "set filetype=terraform";
+    }
+
     {
       event = "TextYankPost";
       desc = "Highlight on yank";
