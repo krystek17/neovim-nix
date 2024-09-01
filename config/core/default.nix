@@ -24,7 +24,7 @@
     vim-just
 
     # Required by terramate
-    vim-lsp
+    vim-plug
     vim-lsp
     vim-terramate
   ];
