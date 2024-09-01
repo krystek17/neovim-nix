@@ -2,7 +2,7 @@
   autoCmd = [
     {
       event = "BufWrite";
-      desc = "Remove trailing whitespace on save";
+      desc = "Remove whitespace on save";
       command = "%s/\\s\\+$//e";
     }
 
@@ -30,10 +30,8 @@
     {
       event = "TextYankPost";
       desc = "Highlight on yank";
-      callback.__raw = # lua
-        ''
-          function() vim.highlight.on_yank({ higroup="IncSearch", timeout=250 }) end
-        '';
+      command =
+        ''lua vim.highlight.on_yank({ higroup="IncSearch", timeout=250 })'';
     }
   ];
 }
