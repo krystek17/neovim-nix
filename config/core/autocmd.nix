@@ -28,7 +28,7 @@
     }
 
     {
-      event = [ "BufWrite" ];
+      event = [ "BufWritePost" ];
       desc = "Set tm.hcl file as terraform hcl";
       pattern = [ "*.tm.hcl" ];
       command = "TerramateFmt";
