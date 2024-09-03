@@ -28,6 +28,13 @@
     }
 
     {
+      event = [ "BufWrite" ];
+      desc = "Set tm.hcl file as terraform hcl";
+      pattern = [ "*.tm.hcl" ];
+      command = "TerramateFmt";
+    }
+
+    {
       event = "TextYankPost";
       desc = "Highlight on yank";
       command =
