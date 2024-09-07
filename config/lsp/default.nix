@@ -21,9 +21,10 @@
         pyright.enable = true;
         tailwindcss.enable = true;
 
+        # FIXME: provider auto complete not working
         terraformls = {
           enable = true;
-          filetypes = [ "terraform" "terraform-vars" "tf.tmgen" ]; # FIXME:
+          # filetypes = [ "terraform" "terraform-vars" "tf.tmgen" ]; # FIXME:
         };
 
         tsserver.enable = true;
