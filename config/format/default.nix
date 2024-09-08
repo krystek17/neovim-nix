@@ -27,7 +27,7 @@
           };
 
           stylua.enable = true;
-          yamlfmt.enable = true;
+          # yamlfmt.enable = true; # TODO: make it mor granular
         };
       };
     };
