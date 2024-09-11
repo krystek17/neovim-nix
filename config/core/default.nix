@@ -24,7 +24,7 @@
     vim-just
 
     # Required by terramate
-    vim-lsp
+    # vim-lsp
     vim-terramate
   ];
 }

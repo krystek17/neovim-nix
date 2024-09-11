@@ -35,6 +35,7 @@
         in {
           _module.args.pkgs = import nixpkgs {
             inherit system;
+
             overlays = [
               (final: prev: {
                 vimPlugins = prev.vimPlugins // {
