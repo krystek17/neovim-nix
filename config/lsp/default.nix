@@ -27,7 +27,7 @@
           # filetypes = [ "terraform" "terraform-vars" "tf.tmgen" ]; # FIXME:
         };
 
-        tsserver.enable = true;
+        ts-ls.enable = true;
         yamlls.enable = true;
       };
 

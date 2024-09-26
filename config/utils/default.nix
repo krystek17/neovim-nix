@@ -15,6 +15,6 @@
     #   manualMode = false;
     #   enableTelescope = true;
     # };
-    surround.enable = true;
+    vim-surround.enable = true;
   };
 }
