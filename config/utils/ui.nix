@@ -1,5 +1,6 @@
 {
   plugins = {
+    colorizer.enable = true;
     illuminate.enable = true;
     indent-blankline.enable = true;
     lualine.enable = true;
@@ -7,10 +8,9 @@
 
     notify = {
       enable = true;
-      topDown = false;
+      top_down = false;
     };
 
     nvim-autopairs.enable = true;
-    nvim-colorizer.enable = true;
   };
 }
