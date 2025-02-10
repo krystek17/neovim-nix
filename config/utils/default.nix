@@ -6,6 +6,7 @@
     ./markdown-preview.nix
     ./nvim-tree.nix
     ./toggleterm.nix
+    ./ui.nix
   ];
 
   plugins = {
