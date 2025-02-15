@@ -6,6 +6,7 @@
 
   colorschemes.tokyonight = {
     enable = true;
+    # lazyLoad.enable = true;
     settings.style = "night";
   };
 

@@ -7,6 +7,7 @@
     ./nvim-tree.nix
     ./toggleterm.nix
     ./ui.nix
+    # ./which-key.nix
   ];
 
   plugins = {

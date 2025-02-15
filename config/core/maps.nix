@@ -21,9 +21,6 @@
       # Nvim-tree
       "<leader>e" = "<cmd>NvimTreeToggle<CR>";
 
-      # Project
-      "<leader>o" = ":Telescope projects<CR>";
-
       # Resize with arrows
       "<C-Left>" = ":vertical resize -2<CR>";
       "<C-Right>" = ":vertical resize +2<CR>";

@@ -3,7 +3,6 @@
     treesitter = {
       enable = true;
       nixvimInjections = true;
-      nixGrammars = true;
 
       grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
         bash

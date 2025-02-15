@@ -14,7 +14,6 @@
       url = "github:terramate-io/vim-terramate";
       flake = false;
     };
-
   };
 
   outputs = { nixpkgs, nixvim, flake-parts, ... }@inputs:
