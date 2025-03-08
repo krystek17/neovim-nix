@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   plugins = {
     lsp = {
       enable = true;
@@ -20,13 +20,7 @@
 
         pyright.enable = true;
         tailwindcss.enable = true;
-
-        # FIXME: provider auto complete not working
-        terraformls = {
-          enable = true;
-          # filetypes = [ "terraform" "terraform-vars" "tf.tmgen" ]; # FIXME:
-        };
-
+        terraformls.enable = true;
         ts_ls.enable = true;
         yamlls.enable = true;
       };
