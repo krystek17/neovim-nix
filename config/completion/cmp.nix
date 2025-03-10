@@ -18,8 +18,6 @@
                   cmp.select_next_item()
                 elseif require("luasnip").expand_or_locally_jumpable() then
                   require("luasnip").expand_or_jump()
-                elseif has_words_before() then
-                  cmp.complete()
                 else
                   fallback()
                 end
@@ -44,8 +42,9 @@
           '';
         };
 
-        snippet.expand =
-          "function(args) require('luasnip').lsp_expand(args.body) end";
+        snippet.expand = ''
+          function(args) require('luasnip').lsp_expand(args.body) end
+        '';
 
         sources = [
           { name = "nvim_lsp"; }
@@ -53,13 +52,14 @@
           { name = "path"; }
           {
             name = "buffer";
-            # Words from other open buffers can also be suggested.
+            # Suggest words from other open buffers
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           }
         ];
       };
     };
 
+    cmp-nvim-lsp.enable = true;
     friendly-snippets.enable = true;
     web-devicons.enable = true;
   };

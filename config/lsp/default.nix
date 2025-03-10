@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+_: {
   plugins = {
     lsp = {
       enable = true;
