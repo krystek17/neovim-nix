@@ -2,11 +2,22 @@
   plugins = {
     colorizer.enable = true;
     illuminate.enable = true;
-    indent-blankline.enable = true;
-    lualine.enable = true;
+
+    # TODO:
+    indent-blankline = {
+      enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+    };
+
+    lualine = {
+      enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+    };
 
     noice = {
       enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+
       settings = {
         cmdline = {
           enabled = true;

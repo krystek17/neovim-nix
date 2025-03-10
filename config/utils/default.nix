@@ -18,6 +18,7 @@
     #   enableTelescope = true;
     # };
     intellitab.enable = true;
+    lz-n.enable = true;
     vim-surround.enable = true;
   };
 }

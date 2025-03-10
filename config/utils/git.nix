@@ -1,6 +1,9 @@
 {
   plugins = {
-    gitsigns.enable = true;
+    gitsigns = {
+      enable = true; # TODO: shortcut
+      lazyLoad.settings.event = "DeferredUIEnter";
+    };
 
     neogit = {
       enable = true;

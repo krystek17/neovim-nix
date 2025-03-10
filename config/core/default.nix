@@ -6,11 +6,10 @@
 
   colorschemes.tokyonight = {
     enable = true;
-    # lazyLoad.enable = true;
     settings.style = "night";
   };
 
-  diagnostics = { virtual_lines = { only_current_line = true; }; };
+  diagnostics.virtual_lines.only_current_line = true;
 
   globals = {
     loaded_ruby_provider = 0; # Ruby
