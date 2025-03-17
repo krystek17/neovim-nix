@@ -25,9 +25,8 @@
       "<C-Left>" = ":vertical resize -2<CR>";
       "<C-Right>" = ":vertical resize +2<CR>";
 
-      # Save & Quit
+      # Save
       "<C-s>" = "<cmd>w<CR>";
-      "<C-q>" = "<cmd>qa!<CR>";
 
       # Search cursor in the middle
       "n" = "nzzzv";
