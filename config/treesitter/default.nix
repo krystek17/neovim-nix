@@ -18,7 +18,7 @@
         hjson
         html
         json
-        jsonnet
+        just
         lua
         markdown
         markdown_inline
@@ -32,7 +32,6 @@
         vim
         vimdoc
         yaml
-        yuck
       ];
 
       settings = {
