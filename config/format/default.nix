@@ -11,7 +11,7 @@
       };
 
       diagnostics = {
-        pylint.enable = true;
+        # pylint.enable = true;
         statix.enable = true;
         trivy.enable = true;
       };

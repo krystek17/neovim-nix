@@ -9,7 +9,6 @@ _: {
         jsonls.enable = true;
         lua_ls.enable = true;
         marksman.enable = true;
-        nil_ls.enable = true;
 
         nixd = {
           enable = true;
@@ -18,7 +17,9 @@ _: {
           };
         };
 
-        pyright.enable = true;
+        # pylsp.enable = true;
+        # pyright.enable = true;
+        ruff.enable = true;
         tailwindcss.enable = true;
         terraformls.enable = true;
         ts_ls.enable = true;
