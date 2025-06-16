@@ -32,4 +32,12 @@
     };
   };
 
+  plugins.lint = {
+    enable = true;
+    lintersByFt = {
+      ruff = [ "ruff" ];
+      terraform = [ "tflint" ];
+      trivy = [ "trivy" ];
+    };
+  };
 }
