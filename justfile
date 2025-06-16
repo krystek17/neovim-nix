@@ -1,3 +1,5 @@
+alias r := run
+
 # List options
 default:
     @just --list

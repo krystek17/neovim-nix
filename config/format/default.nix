@@ -1,43 +1,49 @@
 {
+  plugins = {
+    none-ls = {
+      enable = true;
+      enableLspFormat = true;
 
-  plugins.none-ls = {
-    enable = true;
-    enableLspFormat = true;
-
-    sources = {
-      code_actions = {
-        gitsigns.enable = true;
-        statix.enable = true;
-      };
-
-      diagnostics = {
-        # pylint.enable = true;
-        statix.enable = true;
-        trivy.enable = true;
-      };
-
-      formatting = {
-        black.enable = true;
-        hclfmt.enable = true;
-        nixfmt.enable = true;
-        opentofu_fmt.enable = true;
-
-        prettier = {
-          enable = true;
-          disableTsServerFormatter = true;
+      sources = {
+        code_actions = {
+          gitsigns.enable = true;
+          statix.enable = true;
         };
 
-        stylua.enable = true;
+        diagnostics = {
+          # pylint.enable = true;
+          statix.enable = true;
+          trivy.enable = true;
+        };
+
+        formatting = {
+          black.enable = true;
+          hclfmt.enable = true;
+          nixfmt.enable = true;
+          opentofu_fmt.enable = true;
+
+          prettier = {
+            enable = true;
+            disableTsServerFormatter = true;
+          };
+
+          stylua.enable = true;
+        };
       };
     };
-  };
 
-  plugins.lint = {
-    enable = true;
-    lintersByFt = {
-      ruff = [ "ruff" ];
-      terraform = [ "tflint" ];
-      trivy = [ "trivy" ];
+    lint = {
+      enable = true;
+      lintersByFt = {
+        ruff = [ "ruff" ];
+        terraform = [ "tflint" ];
+        trivy = [ "trivy" ];
+      };
+    };
+
+    lsp.servers.tflint = {
+      enable = true;
+      autostart = true;
     };
   };
 }
