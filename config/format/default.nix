@@ -34,16 +34,12 @@
 
     lint = {
       enable = true;
+
       lintersByFt = {
         ruff = [ "ruff" ];
         terraform = [ "tflint" ];
         trivy = [ "trivy" ];
       };
-    };
-
-    lsp.servers.tflint = {
-      enable = true;
-      autostart = true;
     };
   };
 }
