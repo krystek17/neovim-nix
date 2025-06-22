@@ -37,7 +37,7 @@
 
       lintersByFt = {
         ruff = [ "ruff" ];
-        terraform = [ "tflint" ];
+        # terraform = [ "tflint" ];
         trivy = [ "trivy" ];
       };
     };
