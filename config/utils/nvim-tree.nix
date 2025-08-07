@@ -2,13 +2,16 @@
   plugins = {
     nvim-tree = {
       enable = true;
-      diagnostics.enable = true;
-      updateFocusedFile.enable = true;
 
-      actions = {
-        changeDir.enable = true;
-        openFile.quitOnOpen = true;
-        removeFile.closeWindow = true;
+      settings = {
+        diagnostics.enable = true;
+        update_focused_file.enable = true;
+
+        actions = {
+          change_dir.enable = true;
+          open_file.quit_on_open = true;
+          remove_file.close_window = true;
+        };
       };
     };
   };

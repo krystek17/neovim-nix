@@ -8,7 +8,6 @@ _: {
         gopls.enable = true;
         jsonls.enable = true;
         lua_ls.enable = true;
-        marksman.enable = true;
         nil_ls.enable = true;
 
         nixd = {
@@ -18,8 +17,6 @@ _: {
           };
         };
 
-        # pylsp.enable = true;
-        # pyright.enable = true;
         ruff.enable = true;
         tailwindcss.enable = true;
         terraformls.enable = true;
@@ -48,12 +45,14 @@ _: {
 
     lspkind = {
       enable = true;
-      cmp = {
-        menu = {
-          buffer = "[Buffer]";
-          nvim_lsp = "[LSP]";
-          luasnip = "[LuaSnip]";
-          nvim_lua = "[Lua]";
+      settings = {
+        cmp = {
+          menu = {
+            buffer = "[Buffer]";
+            nvim_lsp = "[LSP]";
+            luasnip = "[LuaSnip]";
+            nvim_lua = "[Lua]";
+          };
         };
       };
     };
