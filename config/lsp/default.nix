@@ -1,4 +1,6 @@
-_: {
+{ pkgs, ... }:
+
+{
   plugins = {
     lsp = {
       enable = true;
@@ -17,6 +19,11 @@ _: {
           };
         };
 
+        puppet = {
+          enable = true;
+          package = pkgs.puppet;
+
+        };
         ruff.enable = true;
         tailwindcss.enable = true;
         terraformls.enable = true;

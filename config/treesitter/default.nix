@@ -23,6 +23,7 @@
         markdown
         markdown_inline
         nix
+        puppet
         python
         regex
         requirements

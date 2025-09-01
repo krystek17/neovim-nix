@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   plugins = {
     none-ls = {
@@ -12,6 +14,8 @@
 
         diagnostics = {
           # pylint.enable = true;
+          puppet_lint.enable = true;
+          puppet_lint.package = pkgs.puppet-lint;
           statix.enable = true;
           trivy.enable = true;
         };
@@ -21,6 +25,8 @@
           hclfmt.enable = true;
           nixfmt.enable = true;
           opentofu_fmt.enable = true;
+          puppet_lint.enable = true;
+          puppet_lint.package = pkgs.puppet-lint;
 
           prettier = {
             enable = true;
