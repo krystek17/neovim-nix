@@ -5,7 +5,6 @@
     lsp = {
       enable = true;
       servers = {
-        ansiblels.enable = true;
         bashls.enable = true;
         gopls.enable = true;
         jsonls.enable = true;
