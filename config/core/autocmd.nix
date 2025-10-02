@@ -1,12 +1,21 @@
 {
+  autoGroups = {
+    highlight_yank = { };
+    on_save = { };
+    new_file = { };
+    help = { };
+  };
+
   autoCmd = [
     {
+      group = "on_save";
       event = "BufWrite";
       desc = "Remove whitespace on save";
       command = "%s/\\s\\+$//e";
     }
 
     {
+      group = "help";
       event = "FileType";
       desc = "Open help in a vertical split";
       pattern = "help";
@@ -14,6 +23,7 @@
     }
 
     {
+      group = "new_file";
       event = "FileType";
       desc = "Set language for markdown files";
       pattern = [ "markdown" ];
@@ -21,6 +31,7 @@
     }
 
     {
+      group = "new_file";
       event = [ "BufEnter" "BufNewFile" ];
       desc = "Set tmgen file as terraform file";
       pattern = [ "*.tf.tmgen" "*.tf" ];
@@ -28,6 +39,7 @@
     }
 
     # {
+    # group = "on_save";
     # event = [ "BufWritePost" ];
     #   desc = "Set tm.hcl file as terraform hcl";
     #   pattern = [ "*.tm.hcl" ];
@@ -35,10 +47,16 @@
     # }
 
     {
+      group = "highlight_yank";
       event = "TextYankPost";
       desc = "Highlight on yank";
-      command =
-        ''lua vim.highlight.on_yank({ higroup="IncSearch", timeout=250 })'';
+      callback = {
+        __raw = ''
+          function()
+            vim.highlight.on_yank({ timeout = 400, higroup = "IncSearch" })
+          end
+        '';
+      };
     }
   ];
 }

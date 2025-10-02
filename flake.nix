@@ -53,7 +53,6 @@
           };
 
           checks = {
-            # Run `nix flake check .` to verify that your config is not broken
             default =
               nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
           };
