@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  imports = [ ./autocmd.nix ./maps.nix ./options.nix ];
+  imports = [ ./autocmd.nix ./diagnostics.nix ./maps.nix ./options.nix ];
 
   viAlias = true;
   vimAlias = true;
@@ -8,8 +8,6 @@
     enable = true;
     settings.style = "night";
   };
-
-  diagnostic.settings.virtual_lines.only_current_line = true;
 
   globals = {
     loaded_ruby_provider = 0; # Ruby
