@@ -2,11 +2,14 @@
   description = "A nixvim configuration";
 
   inputs = {
+    nixpkgs.follows = "nixvim/nixpkgs";
+    nixvim.url = "github:nix-community/nixvim";
+    systems.url = "github:nix-systems/default-linux";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    import-tree.url = "github:vic/import-tree";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -16,46 +19,19 @@
     };
   };
 
-  outputs = { nixpkgs, nixvim, flake-parts, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-darwin" ];
+  # nixConfig = {
+  #   abort-on-warn = true;
+  #   allow-import-from-derivation = false;
+  # };
 
-      perSystem = { pkgs, system, ... }:
-        let
-          nixvimLib = nixvim.lib.${system};
-          nixvim' = nixvim.legacyPackages.${system};
-          nixvimModule = {
-            inherit pkgs;
-            module = import ./config; # import the module directly
-            # You can use `extraSpecialArgs` to pass additional arguments to your module files
-            extraSpecialArgs = { };
-          };
-          nvim = nixvim'.makeNixvimWithModule nixvimModule;
-        in {
-          _module.args.pkgs = import nixpkgs {
-            inherit system;
+  outputs = inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
 
-            overlays = [
-              (final: prev: {
-                vimPlugins = prev.vimPlugins // {
-                  vim-terramate = prev.vimUtils.buildVimPlugin {
-                    name = "vim-terramate";
-                    src = inputs.vim-terramate;
-                  };
-                };
-              })
-            ];
-          };
+      systems = import inputs.systems;
 
-          packages = {
-            # Lets you run `nix run .` to start nixvim
-            default = nvim;
-          };
-
-          checks = {
-            default =
-              nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-          };
-        };
+      imports = [
+        inputs.flake-parts.flakeModules.modules
+        (inputs.import-tree ./modules)
+      ];
     };
 }
