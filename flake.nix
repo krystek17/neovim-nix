@@ -24,7 +24,8 @@
   #   allow-import-from-derivation = false;
   # };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
 
       systems = import inputs.systems;
