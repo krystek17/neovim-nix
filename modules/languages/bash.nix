@@ -11,9 +11,19 @@
           formatters_by_ft = lib.genAttrs [ "bash" "sh" ] (_: [ "shfmt" ]);
 
           formatters = {
-            shellcheck.command = lib.getExe pkgs.shellcheck;
-            shellharden.command = lib.getExe pkgs.shellharden;
             shfmt.command = lib.getExe pkgs.shfmt;
+          };
+        };
+
+        lint = {
+          lintersByFt = {
+            bash = [
+              "shellcheck"
+            ];
+          };
+
+          linters = {
+            shellcheck.cmd = lib.getExe pkgs.shellcheck;
           };
         };
       };

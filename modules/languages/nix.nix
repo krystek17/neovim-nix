@@ -26,6 +26,16 @@
 
           formatters.nixfmt.command = lib.getExe pkgs.nixfmt-rfc-style;
         };
+
+        lint = {
+          lintersByFt = {
+            nix = [ "deadnix" ];
+          };
+
+          linters = {
+            deadnix.cmd = lib.getExe pkgs.deadnix;
+          };
+        };
       };
     };
 }
