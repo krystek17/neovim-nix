@@ -8,15 +8,15 @@
           gopls.enable = true;
         };
 
-        lint = {
-          lintersByFt = {
-            go = [ "golangcilint" ];
-          };
-
-          linters = {
-            golangcilint.cmd = lib.getExe pkgs.golangci-lint;
-          };
-        };
+        # lint = {
+        #   lintersByFt = {
+        #     go = [ "golangcilint" ];
+        #   };
+        #
+        #   linters = {
+        #     golangcilint.cmd = lib.getExe pkgs.golangci-lint;
+        # };
+        # };
       };
     };
 }
