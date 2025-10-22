@@ -4,8 +4,11 @@
 
     {
       plugins = {
-        lsp.servers = {
-          yamlls.enable = true;
+        lsp = {
+          servers = {
+            helm_ls.enable = true;
+            yamlls.enable = true;
+          };
         };
 
         lint = {

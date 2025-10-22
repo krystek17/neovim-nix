@@ -33,9 +33,15 @@
 
       {
         group = "new_file";
-        event = [ "BufEnter" "BufNewFile" ];
+        event = [
+          "BufEnter"
+          "BufNewFile"
+        ];
         desc = "Set tmgen file as terraform file";
-        pattern = [ "*.tf.tmgen" "*.tf" ];
+        pattern = [
+          "*.tf.tmgen"
+          "*.tf"
+        ];
         command = "set filetype=terraform";
       }
 
@@ -46,6 +52,11 @@
       #   pattern = [ "*.tm.hcl" ];
       #   command = "TerramateFmt";
       # }
+      {
+        event = "Filetype";
+        pattern = "helm";
+        command = "LspRestart";
+      }
 
       {
         group = "highlight_yank";
