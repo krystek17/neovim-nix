@@ -14,9 +14,9 @@
 
         conform-nvim.settings = {
           formatters_by_ft = {
-            hcl = [
-              "hcl"
-            ];
+            hcl = [ "hcl" ];
+            tf = [ "tofu_fmt" ];
+            terraform = [ "tofu_fmt" ];
           };
 
           formatters.hcl.command = lib.getExe pkgs.hclfmt;

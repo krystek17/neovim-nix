@@ -5,7 +5,6 @@
 
       lazyLoad.settings = {
         cmd = [ "ConformInfo" ];
-
         event = [ "BufWritePre" ];
       };
 
