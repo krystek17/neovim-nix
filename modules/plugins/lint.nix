@@ -12,12 +12,10 @@
 
         lintersByFt = {
           fish = [ "fish" ];
-          json = [ "jsonlint" ];
         };
 
         linters = {
           fish.cmd = lib.getExe pkgs.fish;
-          jsonlint.cmd = lib.getExe pkgs.nodePackages.jsonlint;
         };
       };
     };

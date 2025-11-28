@@ -19,13 +19,9 @@
         };
 
         lint = {
-          lintersByFt = {
-            json = [ "jsonlint" ];
-          };
+          lintersByFt = { };
 
-          linters = {
-            jsonlint.cmd = lib.getExe pkgs.nodePackages.jsonlint;
-          };
+          linters = { };
         };
       };
     };

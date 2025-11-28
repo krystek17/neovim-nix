@@ -1,12 +1,13 @@
 {
-  flake.modules.nixvim.treesitter = { config, ... }: {
-    plugins = {
-      treesitter = {
-        enable = true;
-        nixvimInjections = true;
+  flake.modules.nixvim.treesitter =
+    { config, ... }:
+    {
+      plugins = {
+        treesitter = {
+          enable = true;
+          nixvimInjections = true;
 
-        grammarPackages =
-          with config.plugins.treesitter.package.builtGrammars; [
+          grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
             bash
             c
             comment
@@ -29,6 +30,7 @@
             python
             regex
             requirements
+            ruby
             scss
             terraform
             toml
@@ -37,11 +39,11 @@
             yaml
           ];
 
-        settings = {
-          highlight.enable = true;
-          indent.enable = true;
+          settings = {
+            highlight.enable = true;
+            indent.enable = true;
+          };
         };
       };
     };
-  };
 }
