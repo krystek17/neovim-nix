@@ -13,6 +13,10 @@
           lsp_format = "fallback";
         };
 
+        extraConfigLuaPre = ''
+          slow_format_filetypes = {}
+        '';
+
         format_on_save = # Lua
           ''
             function(bufnr)
@@ -20,7 +24,13 @@
                 return
               end
 
-                 -- Disable autoformat for slow filetypes
+              -- Skip Neogit and git commit buffers
+              local bufname = vim.api.nvim_buf_get_name(bufnr)
+              if bufname:match("COMMIT_EDITMSG") or bufname:match("MERGE_MSG") or vim.bo[bufnr].filetype == "NeogitCommitMessage" then
+                return
+              end
+
+              -- Disable autoformat for slow filetypes
               if slow_format_filetypes[vim.bo[bufnr].filetype] then
                 return
               end
