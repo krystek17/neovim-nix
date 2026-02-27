@@ -8,10 +8,6 @@
         event = [ "BufWritePre" ];
       };
 
-      luaConfig.pre = ''
-        local slow_format_filetypes = {}
-      '';
-
       settings = {
         default_format_opts = {
           lsp_format = "fallback";
