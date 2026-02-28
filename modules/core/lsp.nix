@@ -25,6 +25,7 @@
 
       lspkind = {
         enable = true;
+
         settings = {
           cmp = {
             menu = {
@@ -41,7 +42,7 @@
 
       luasnip = {
         enable = true;
-        fromVscode = [{ lazyLoad = true; }];
+        fromVscode = [ { lazyLoad = true; } ];
       };
     };
   };

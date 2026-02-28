@@ -4,7 +4,7 @@
       float.border = "rounded";
       jump.severity.__raw = "vim.diagnostic.severity.WARN";
       severity_sort = true;
-      update_in_insert = true;
+      update_in_insert = false;
       virtual_lines.current_line = true;
 
       virtual_text = {
