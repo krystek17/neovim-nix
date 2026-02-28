@@ -2,48 +2,46 @@
   flake.modules.nixvim.format = {
     plugins.conform-nvim = {
       enable = true;
-
       lazyLoad.settings = {
         cmd = [ "ConformInfo" ];
         event = [ "BufWritePre" ];
       };
-
+      luaConfig.pre = ''
+        local slow_format_filetypes = {}
+      '';
       settings = {
         default_format_opts = {
           lsp_format = "fallback";
         };
+        format_on_save = /* Lua */ ''
+          function(bufnr)
+            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+              return
+            end
 
-        extraConfigLuaPre = ''
-          slow_format_filetypes = {}
+            -- Disable autoformat for slow filetypes
+            if slow_format_filetypes[vim.bo[bufnr].filetype] then
+              return
+            end
+            local function on_format(err)
+              if err and err:match("timeout$") then
+                slow_format_filetypes[vim.bo[bufnr].filetype] = true
+              end
+            end
+            return { timeout_ms = 200, lsp_format = "fallback" }, on_format
+          end
         '';
-
-        format_on_save = # Lua
-          ''
-            function(bufnr)
-              if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-                return
-              end
-
-              -- Skip Neogit and git commit buffers
-              local bufname = vim.api.nvim_buf_get_name(bufnr)
-              if bufname:match("COMMIT_EDITMSG") or bufname:match("MERGE_MSG") or vim.bo[bufnr].filetype == "NeogitCommitMessage" then
-                return
-              end
-
-              -- Disable autoformat for slow filetypes
-              if slow_format_filetypes[vim.bo[bufnr].filetype] then
-                return
-              end
-
-              local function on_format(err)
-                if err and err:match("timeout$") then
-                  slow_format_filetypes[vim.bo[bufnr].filetype] = true
-                end
-              end
-
-              return { timeout_ms = 200, lsp_fallback = true }, on_format
-             end
-          '';
+        format_after_save = /* Lua */ ''
+          function(bufnr)
+            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+              return
+            end
+            if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+              return
+            end
+            return { lsp_format = "fallback" }
+          end
+        '';
       };
     };
   };
