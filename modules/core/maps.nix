@@ -25,26 +25,10 @@
                   desc = "Dismiss Notifications";
                 };
 
-                # Git
-                "<leader>gg" = {
-                  action = "<cmd>Neogit<CR>";
-                  desc = "Neogit";
-                };
-                "<leader>gb" = {
-                  action = "<cmd>Gitsigns blame_line<CR>";
-                  desc = "Blame Line";
-                };
-
                 # No Highlight
                 "<leader>h" = {
                   action = ":nohlsearch<CR>";
                   desc = "No Highlight";
-                };
-
-                # Nvim-tree
-                "<leader>e" = {
-                  action = "<cmd>NvimTreeToggle<CR>";
-                  desc = "File Explorer";
                 };
 
                 # Resize with arrows
@@ -71,25 +55,6 @@
                   action = "<cmd>lua print(vim.inspect(require('lint').linters_by_ft[vim.bo.filetype]))<CR>";
                   desc = "Show Linters";
                 };
-
-                # Telescope
-                "<leader>b" = {
-                  action = "<cmd>Telescope buffers<CR>";
-                  desc = "Buffers";
-                };
-                "<leader>s" = {
-                  action = "<cmd>Telescope find_files hidden=true<CR>";
-                  desc = "Search Files";
-                };
-                "<leader>f" = {
-                  action = "<cmd>Telescope live_grep<CR>";
-                  desc = "Grep";
-                };
-                "<leader>r" = {
-                  action = "<cmd>Telescope registers<CR>";
-                  desc = "Registers";
-                };
-                "<C-p>" = "<cmd>Telescope oldfiles<CR>";
 
                 # Vsplit
                 "<C-t>" = ":vsplit<CR>";

@@ -3,37 +3,32 @@
     plugins.which-key = {
       enable = true;
       lazyLoad.settings.event = "DeferredUIEnter";
+
       settings = {
-        spec = [
-          {
-            __unkeyed-1 = "<leader>g";
-            group = "Git";
-          }
+
+        replace.desc = [
+          [
+            "<space>"
+            "SPACE"
+          ]
+          [
+            "<leader>"
+            "SPACE"
+          ]
+          [
+            "<[cC][rR]>"
+            "RETURN"
+          ]
+          [
+            "<[tT][aA][bB]>"
+            "TAB"
+          ]
+          [
+            "<[bB][sS]>"
+            "BACKSPACE"
+          ]
         ];
-        replace = {
-          desc = [
-            [
-              "<space>"
-              "SPACE"
-            ]
-            [
-              "<leader>"
-              "SPACE"
-            ]
-            [
-              "<[cC][rR]>"
-              "RETURN"
-            ]
-            [
-              "<[tT][aA][bB]>"
-              "TAB"
-            ]
-            [
-              "<[bB][sS]>"
-              "BACKSPACE"
-            ]
-          ];
-        };
+
         win.border = "single";
       };
     };
