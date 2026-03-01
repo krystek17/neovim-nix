@@ -13,7 +13,6 @@
         ];
 
         lazyLoad.settings.event = [
-          "DeferredUIEnter"
           "BufReadPost"
           "BufWritePost"
           "InsertLeave"
