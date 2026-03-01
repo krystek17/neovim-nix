@@ -1,68 +1,70 @@
 {
-  flake.modules.nixvim.core = {
-    plugins = {
-      cmp = {
-        enable = true;
-        autoEnableSources = true;
+  flake.modules.nixvim.core =
+    { pkgs, ... }:
+    {
+      plugins = {
+        blink-cmp = {
+          enable = true;
 
-        settings = {
-          mapping = {
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
-            "<C-k>" = "cmp.mapping.select_prev_item()";
-            "<C-j>" = "cmp.mapping.select_next_item()";
-            "<C-b>" = "cmp.mapping.close()";
+          settings = {
+            cmdline.completion.menu.auto_show = true;
 
-            "<Tab>" = ''
-              cmp.mapping(
-                function(fallback)
-                  if cmp.visible() then
-                    cmp.select_next_item()
-                  elseif require("luasnip").expand_or_locally_jumpable() then
-                    require("luasnip").expand_or_jump()
-                  else
-                    fallback()
-                  end
-                end,
-                { 'i', 's' }
-              )
-            '';
+            keymap = {
+              preset = "none";
+              "<CR>" = [
+                "accept"
+                "fallback"
+              ];
+              "<C-k>" = [
+                "select_prev"
+                "fallback"
+              ];
+              "<C-j>" = [
+                "select_next"
+                "fallback"
+              ];
+              "<C-b>" = [
+                "cancel"
+                "fallback"
+              ];
+              "<Tab>" = [
+                "snippet_forward"
+                "select_next"
+                "fallback"
+              ];
+              "<S-Tab>" = [
+                "snippet_backward"
+                "select_prev"
+                "fallback"
+              ];
+            };
 
-            "<S-Tab>" = ''
-              cmp.mapping(
-                function(fallback)
-                  if cmp.visible() then
-                    cmp.select_prev_item()
-                  elseif require("luasnip").jumpable(-1) then
-                    require("luasnip").jump(-1)
-                  else
-                    fallback()
-                  end
-                end,
-                { 'i', 's' }
-              )
-            '';
+            sources = {
+              default = [
+                "lsp"
+                "path"
+                "snippets"
+                "buffer"
+              ];
+              providers.snippets.opts.search_paths = [
+                "${pkgs.vimPlugins.friendly-snippets}"
+              ];
+            };
+
+            completion = {
+              keyword.range = "full";
+              documentation.auto_show = true;
+              ghost_text.enabled = true;
+            };
+
+            signature = {
+              enabled = true;
+              window.border = "rounded";
+            };
           };
-
-          snippet.expand = ''
-            function(args) require('luasnip').lsp_expand(args.body) end
-          '';
-
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "luasnip"; }
-            { name = "path"; }
-            {
-              name = "buffer";
-              # Suggest words from other open buffers
-              option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
-            }
-          ];
         };
-      };
 
-      cmp-nvim-lsp.enable = true;
-      friendly-snippets.enable = true;
-      web-devicons.enable = true;
+        web-devicons.enable = true;
+      };
     };
-  };
 }

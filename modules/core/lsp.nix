@@ -20,28 +20,6 @@
           };
         };
       };
-
-      lspkind = {
-        enable = true;
-
-        settings = {
-          cmp = {
-            menu = {
-              buffer = "[Buffer]";
-              nvim_lsp = "[LSP]";
-              luasnip = "[LuaSnip]";
-              nvim_lua = "[Lua]";
-            };
-          };
-        };
-      };
-
-      lsp-lines.enable = true;
-
-      luasnip = {
-        enable = true;
-        fromVscode = [ { lazyLoad = true; } ];
-      };
     };
   };
 }
