@@ -2,7 +2,7 @@
   flake.modules.nixvim.git = {
     plugins = {
       gitsigns = {
-        enable = true; # TODO: update shortcut
+        enable = true;
         lazyLoad.settings.event = "DeferredUIEnter";
       };
 

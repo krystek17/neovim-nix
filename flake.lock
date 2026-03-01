@@ -115,8 +115,7 @@
         ],
         "nixvim": "nixvim",
         "systems": "systems_2",
-        "treefmt-nix": "treefmt-nix",
-        "vim-terramate": "vim-terramate"
+        "treefmt-nix": "treefmt-nix"
       }
     },
     "systems": {
@@ -166,22 +165,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "vim-terramate": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1702488596,
-        "narHash": "sha256-/ay0OeMR+T4bNP3lNeKReQv7C6cpRUMnF/4M70zYY5k=",
-        "owner": "terramate-io",
-        "repo": "vim-terramate",
-        "rev": "072a376f02fd60e5e542fadd83259e9c17c400b0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "terramate-io",
-        "repo": "vim-terramate",
         "type": "github"
       }
     }

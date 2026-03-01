@@ -6,6 +6,12 @@
       plugins.lint = {
         enable = true;
 
+        autoCmd.event = [
+          "BufReadPost"
+          "BufWritePost" # Default value
+          "InsertLeave"
+        ];
+
         lazyLoad.settings.event = [
           "DeferredUIEnter"
         ];

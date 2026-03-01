@@ -6,24 +6,46 @@
         let
           normal =
             lib.mapAttrsToList
-              (key: action: {
-                mode = "n";
-                inherit action key;
-              })
+              (
+                key: value:
+                let
+                  v = if builtins.isString value then { action = value; } else value;
+                in
+                {
+                  mode = "n";
+                  inherit key;
+                  action = v.action;
+                }
+                // lib.optionalAttrs (v ? desc) { options.desc = v.desc; }
+              )
               {
                 # Dismiss all notifications
-                "<C-n>" = ''
-                  <cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>
-                '';
+                "<C-n>" = {
+                  action = ''<cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>'';
+                  desc = "Dismiss Notifications";
+                };
 
-                # Neogit
-                "<leader>g" = "<cmd>Neogit<CR>";
+                # Git
+                "<leader>gg" = {
+                  action = "<cmd>Neogit<CR>";
+                  desc = "Neogit";
+                };
+                "<leader>gb" = {
+                  action = "<cmd>Gitsigns blame_line<CR>";
+                  desc = "Blame Line";
+                };
 
                 # No Highlight
-                "<leader>h" = ":nohlsearch<CR>";
+                "<leader>h" = {
+                  action = ":nohlsearch<CR>";
+                  desc = "No Highlight";
+                };
 
                 # Nvim-tree
-                "<leader>e" = "<cmd>NvimTreeToggle<CR>";
+                "<leader>e" = {
+                  action = "<cmd>NvimTreeToggle<CR>";
+                  desc = "File Explorer";
+                };
 
                 # Resize with arrows
                 "<C-Left>" = ":vertical resize -2<CR>";
@@ -39,13 +61,34 @@
                 # Tabs
                 "<S-l>" = ":bnext<CR>";
                 "<S-h>" = ":bprevious<CR>";
-                "<leader>c" = ":bdelete<CR>";
+                "<leader>c" = {
+                  action = ":bdelete<CR>";
+                  desc = "Close Buffer";
+                };
+
+                # Lint
+                "<leader>l" = {
+                  action = "<cmd>lua print(vim.inspect(require('lint').linters_by_ft[vim.bo.filetype]))<CR>";
+                  desc = "Show Linters";
+                };
 
                 # Telescope
-                "<leader>b" = "<cmd>Telescope buffers<CR>";
-                "<leader>s" = "<cmd>Telescope find_files hidden=true<CR>";
-                "<leader>f" = "<cmd>Telescope live_grep<CR>";
-                "<leader>r" = "<cmd>Telescope registers<CR>";
+                "<leader>b" = {
+                  action = "<cmd>Telescope buffers<CR>";
+                  desc = "Buffers";
+                };
+                "<leader>s" = {
+                  action = "<cmd>Telescope find_files hidden=true<CR>";
+                  desc = "Search Files";
+                };
+                "<leader>f" = {
+                  action = "<cmd>Telescope live_grep<CR>";
+                  desc = "Grep";
+                };
+                "<leader>r" = {
+                  action = "<cmd>Telescope registers<CR>";
+                  desc = "Registers";
+                };
                 "<C-p>" = "<cmd>Telescope oldfiles<CR>";
 
                 # Vsplit

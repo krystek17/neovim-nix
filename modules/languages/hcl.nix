@@ -21,6 +21,16 @@
 
           formatters.hcl.command = lib.getExe pkgs.hclfmt;
         };
+
+        lint = {
+          lintersByFt = {
+            terraform = [ "tflint" ];
+          };
+
+          linters = {
+            tflint.cmd = lib.getExe pkgs.tflint;
+          };
+        };
       };
     };
 }

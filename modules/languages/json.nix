@@ -15,12 +15,6 @@
 
           formatters.jq.command = lib.getExe pkgs.jq;
         };
-
-        lint = {
-          lintersByFt = { };
-
-          linters = { };
-        };
       };
     };
 }

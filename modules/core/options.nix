@@ -21,9 +21,6 @@
       number = true;
       relativenumber = true;
 
-      # System clipboard support
-      clipboard = "unnamedplus";
-
       # Set tabs to 2 spaces
       tabstop = 2;
       expandtab = true;

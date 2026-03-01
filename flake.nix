@@ -12,17 +12,7 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    vim-terramate = {
-      url = "github:terramate-io/vim-terramate";
-      flake = false;
-    };
   };
-
-  # nixConfig = {
-  #   abort-on-warn = true;
-  #   allow-import-from-derivation = false;
-  # };
 
   outputs =
     inputs:

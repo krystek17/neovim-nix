@@ -21,8 +21,6 @@
         };
       };
 
-      lsp-format.enable = true;
-
       lspkind = {
         enable = true;
 

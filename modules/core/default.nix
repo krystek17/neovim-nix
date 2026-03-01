@@ -32,10 +32,6 @@
         ansible-vim
         vim-just
         vim-be-good
-
-        # Required by terramate
-        # vim-lsp
-        # vim-terramate
       ];
     };
 }

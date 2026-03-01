@@ -44,20 +44,11 @@
         ];
         command = "set filetype=terraform";
       }
-
-      # {
-      # group = "on_save";
-      # event = [ "BufWritePost" ];
-      #   desc = "Set tm.hcl file as terraform hcl";
-      #   pattern = [ "*.tm.hcl" ];
-      #   command = "TerramateFmt";
-      # }
       {
         event = "Filetype";
         pattern = "helm";
         command = "LspRestart";
       }
-
       {
         group = "highlight_yank";
         event = "TextYankPost";
