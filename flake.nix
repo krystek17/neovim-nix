@@ -7,6 +7,7 @@
     systems.url = "github:nix-systems/default-linux";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
+    kcl-nix.url = "github:appthrust/kcl-nix";
 
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";

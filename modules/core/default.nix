@@ -31,7 +31,6 @@
       extraPlugins = with pkgs.vimPlugins; [
         ansible-vim
         vim-just
-        vim-be-good
       ];
     };
 }

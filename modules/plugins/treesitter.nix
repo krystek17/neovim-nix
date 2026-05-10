@@ -10,6 +10,7 @@
           grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
             bash
             c
+            cue
             comment
             css
             fish
@@ -22,6 +23,7 @@
             html
             json
             just
+            kcl
             lua
             markdown
             markdown_inline
