@@ -5,7 +5,14 @@
     {
       plugins = {
         lsp.servers = {
-          lua_ls.enable = true;
+          lua_ls = {
+            enable = true;
+            settings = {
+              diagnostics = {
+                globals = [ "hl" ];
+              };
+            };
+          };
         };
 
         conform-nvim.settings = {
